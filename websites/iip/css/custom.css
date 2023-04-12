@@ -1,0 +1,82 @@
+* {
+    /* universal selector */
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    width: 1170px;
+    height: 1600px;
+    margin: auto;
+    background-color: white;
+}
+
+.top-contact {
+    width: 1170px;
+    height: 40px;
+    background-color: #343130;
+    color: white;
+    font-size: 20px;
+    font-family: verdana;
+}
+
+.top-left {
+    width: 300px;
+    height: 40px;
+    float: left;
+
+}
+
+.top-right {
+    width: 285px;
+    height: 40px;
+    float: right;
+}
+
+.top-icon {
+    float: left;
+    padding: 10px 13px 0 23px;
+    /* top right bottom left */
+}
+
+.top-text {
+    float: left;
+    padding-top: 7px;
+}
+
+.menu-section {
+    width: 1170px;
+    height: 140px;
+}
+
+.logo {
+    width: 165px;
+    margin: 10px 0 0 50px;
+    height: 130px;
+    float: left;
+    /* top right bottom left */
+}
+
+.menu-box {
+    width: 850px;
+    height: 140px;
+    float: right;
+}
+
+.menu-item {
+    float: left;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 30px;
+    margin-top: 100px;
+}

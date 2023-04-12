@@ -1,0 +1,80 @@
+* {
+    /* select all elements  */
+    padding: 0;
+    margin: 0;
+    font-family: verdana;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    width: 1170px;
+    height: 1600px;
+    background-color: white;
+    margin: auto;
+}
+
+.top-container {
+    width: 1170px;
+    height: 40px;
+    background-color: #343130;
+}
+
+.top-left {
+    width: 500px;
+    height: 40px;
+    float: left;
+}
+
+.top-right {
+    width: 290px;
+    height: 40px;
+    float: right;
+}
+
+.top-icon {
+    float: left;
+    padding: 10px 13px 0px 23px;
+}
+
+.top-title {
+    color: white;
+    float: left;
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+.menu-container {
+    width: 1170px;
+    height: 140px;
+}
+
+.logo {
+    width: 165px;
+    margin-left: 50px;
+    margin-top: 10px;
+    float: left;
+}
+
+.menu {
+    width: 850px;
+    height: 140px;
+    float: right;
+}
+
+.menu-item {
+    float: left;
+    margin: 0px 32px;
+    margin-top: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: arial;
+    /* normal and bold  */
+}

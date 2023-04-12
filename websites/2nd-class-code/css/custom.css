@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+main {
+    width: 1000px;
+    margin: auto;
+}
+
+.top {
+    width: 100%;
+    background: url('../images/bg_img.jpg') top center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.header-text {
+    font: 20px Arial;
+    text-align: right;
+    line-height: 30px;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background: url('../images/menu_rept.jpg');
+    border-radius: 5px;
+}
+
+nav ul {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.why-choose-box{
+    width: 100%;
+    height: 200px;
+    margin: 30px 0px;
+}
+.why-choose-row{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.choose-box{
+    width: 300px;
+    padding: 20px 0 0 30px;
+}
+.choose-box p{
+    font-size: 12px;
+}
+.choose-box div{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
