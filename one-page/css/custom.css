@@ -1,0 +1,141 @@
+html{
+    scroll-behavior: smooth;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: arial;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+body {
+    background-image: url('../images/waves_.jpg');
+    background-attachment: fixed;
+}
+
+main {
+    width: 1000px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    height: 650px;
+    background: url('../images/headerbg.jpg');
+    background-attachment: fixed;
+    background-position: 10% 0;
+    /* width height */
+    background-size: cover;
+    border-bottom: 10px #0083ce solid;
+}
+
+.header-overlay {
+    width: 100%;
+    height: 100%;
+    background: url('../images/gridtile.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    padding-top: 30px;
+    width: 300px;
+}
+
+.tagline {
+    width: 400px;
+    text-align: center;
+    border: 2px #27E0FF solid;
+    padding: 20px 0;
+    border-left: 0;
+    border-right: 0;
+    color: white;
+    font-size: 36px;
+}
+
+nav {
+    width: 500px;
+    display: flex;
+    color: white;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+section {
+    width: 100%;
+    background-color: white;
+}
+
+.top {
+    width: 100%;
+    height: 320px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    border: #FFF 8px solid;
+    font-family: arial;
+    font-size: 26px;
+    color: #FFF;
+    padding: 5px;
+}
+
+.bottom {
+    width: 100%;
+    height: 500px;
+    font-size: 17px;
+    color: #182D55;
+    padding: 60px 10px;
+    box-sizing: border-box;
+}
+.bottom p{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#home .top{
+    background-image: url('../images/3.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 80% auto;
+}
+#about .top{
+    background-image: url('../images/1.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 75% auto;
+}
+#service .top{
+    background-image: url('../images/2.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% auto;
+}
+
+#training .top{
+    background-image: url('../images/banner-7.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+#contact .top{
+    background-image: url('../images/4.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
