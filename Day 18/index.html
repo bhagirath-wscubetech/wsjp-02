@@ -46,15 +46,15 @@
         <form action="">
             <div class="row">
                 <label class="required-input" for="username">Name</label>
-                <input type="text" required name="user_name" id="username" placeholder="Enter name here">
+                <input type="text" required name="user_name" id="username" placeholder="Enter name here" maxlength="20" autofocus>
             </div>
             <div class="row">
                 <label class="required-input" for="useremail">Email</label>
-                <input type="email" required name="user_email" id="useremail" placeholder="Enter email here">
+                <input type="email" required name="user_email" id="useremail" placeholder="Enter email here" >
             </div>
             <div class="row">
                 <label class="required-input" for="userpassword">Password</label>
-                <input type="password" required name="user_password" id="userpassword" placeholder="Enter password here">
+                <input type="password" required name="user_password" id="userpassword" placeholder="Enter password here" >
             </div>
             <div class="row">
                 <label for="">Gender</label>
@@ -63,14 +63,14 @@
                     <input type="radio" id="male" name="user_gender" value="M">
 
                     <label for="female">Female</label>
-                    <input type="radio" id="female" name="user_gender" value="F">
+                    <input type="radio" checked id="female" name="user_gender" value="F">
                 </div>
             </div>
             <div class="row">
                 <label for="">Interest</label>
                 <div>
                     <label for="gaming">Gaming</label>
-                    <input type="checkbox" id="gaming" name="user_interest" value="G">
+                    <input type="checkbox" checked id="gaming" name="user_interest" value="G">
 
                     <label for="singing">Singing</label>
                     <input type="checkbox" id="singing" name="user_interest" value="S">
@@ -82,7 +82,7 @@
             <div class="row">
                 <label for="addres">Address</label>
                 <!-- <input type="text" name="user_address"> -->
-                <textarea id="addres" name="user_address" placeholder="Enter address here"></textarea>
+                <textarea id="addres" name="user_address" placeholder="Enter address here" maxlength="200"></textarea>
             </div>
             <div class="row" style="flex-direction: row; gap:10px">
                 <input type="submit">
