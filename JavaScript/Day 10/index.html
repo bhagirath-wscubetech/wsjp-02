@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [
+            10, 40, 70, 100, 400, 700, 100, 200, 20, 50, 100
+        ];
+        console.log(data);
+        var sum = 0;
+        for (var i = 0; i < data.length; i++) {
+            if(sum >=1000){
+                break;
+            }
+            console.log(i);
+            sum += data[i];
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>
