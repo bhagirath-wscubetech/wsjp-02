@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px red solid;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">5</div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <button onclick="moveIt()">></button>
+
+    <script>
+        const boxes = document.getElementsByClassName("box");
+        var start = 0;
+        function moveIt() {
+            if (start + 1 == boxes.length) {
+                return;
+            }
+            boxes[start + 1].innerText = boxes[start].innerText;
+            boxes[start].innerText = "";
+
+            start++;
+            // boxes[1] = boxes[0]            
+            // boxes[2] = boxes[1]     
+        }
+    </script>
+</body>
+
+</html>

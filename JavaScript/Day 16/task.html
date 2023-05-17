@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px red solid;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">5</div>
+    <button onclick="moveIt(0,1)">></button>
+    <div class="box"></div>
+    <button onclick="moveIt(1,2)">></button>
+    <div class="box"></div>
+    <button onclick="moveIt(2,3)">></button>
+    <div class="box"></div>
+
+    <script>
+        const boxes = document.getElementsByClassName("box");
+        console.log(boxes);
+
+        function moveIt(from, to) {
+            boxes[to].innerText = boxes[from].innerText
+            // boxes[1].innerText = boxes[0].innerText;
+            boxes[from].innerText = ""
+            // boxes[0].innerText = "";
+        }
+    </script>
+</body>
+
+</html>

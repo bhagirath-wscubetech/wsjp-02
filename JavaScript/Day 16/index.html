@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px red solid;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">5</div>
+    <button onclick="first()">></button>
+    <div id="box2"></div>
+    <button onclick="second()">></button>
+    <div id="box3"></div>
+
+    <script>
+        const box1 = document.getElementById("box1");
+        const box2 = document.getElementById("box2");
+        const box3 = document.getElementById("box3");
+
+        function first() {
+            box2.innerText = box1.innerText;
+            box1.innerText = "";
+        }
+        function second() {
+            box3.innerText = box2.innerText;
+            box2.innerText = "";
+        }
+    </script>
+</body>
+
+</html>
