@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="obj.getFullName()">Click Me</button>
+    <button onclick="emp.getDetails()">Salary</button>
+    <script>
+        var obj = {
+            f_name: "John",
+            l_name: "Kumar",
+            age: 24,
+            getFullName: function () {
+                // console.log(obj.f_name + " " + obj.l_name);
+                console.log(this.f_name + " " + this.l_name);
+            }
+        }
+
+
+        var emp = {
+            name: "Sumer",
+            salary: 100000,
+            getDetails: function () {
+                console.log(`The salary of ${this.name} is ${this.salary}`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

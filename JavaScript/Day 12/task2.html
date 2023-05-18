@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 231;
+        var sum = 0;
+        while (true) {
+            sum += (num % 10);
+            num = parseInt(num / 10);
+            if (num == 0) {
+                break;
+            }
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>

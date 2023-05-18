@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calc(a, b, opr) {
+            if (opr == "+") {
+                return a + b;
+            }
+            if (opr == "-") {
+                return a - b;
+            }
+            if (opr == "x") {
+                return a * b;
+            }
+            if (opr == "/") {
+                return a / b;
+            }
+        }
+
+        var res1 = calc(14, 53, "+");
+        console.log(res1);
+        var res2 = calc(24, 3, "x");
+        console.log(res2);
+        var res3 = calc(25, 5, "/");
+        console.log(res3);
+    </script>
+</body>
+
+</html>

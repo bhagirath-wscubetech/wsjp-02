@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            padding: 0px 10px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 5px grey;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        #menu {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        #menu-box {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            transition: 5s;
+            left: -100%;
+            height: 100vh;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #close {
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            margin-left: auto;
+            display: block;
+            width: 40px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!-- <i class="fa fa-bars" id="menu" onclick="openMenu()"></i> -->
+        <i class="fa fa-bars" id="menu" onclick="toggleMenu(1)"></i>
+
+    </nav>
+    <div id="menu-box">
+        <!-- <i class="fa fa-times" id="close" onclick="closeMenu()"></i> -->
+        <i class="fa fa-times" id="close" onclick="toggleMenu(0)"></i>
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/6df5f622e7.js" crossorigin="anonymous"></script>
+    <script>
+        const menuBox = document.getElementById("menu-box");
+
+        function toggleMenu(flag) {
+            if (flag == 1) {
+                menuBox.style.left = 0;
+                menuBox.style.opacity = 1;
+            } else {
+                menuBox.style.left = "";
+                menuBox.style.opacity = "";
+            }
+        }
+
+        // function openMenu() {
+        //     menuBox.style.left = 0;
+        //     menuBox.style.opacity = 1;
+        // }
+        // function closeMenu() {
+        //     menuBox.style.left = "";
+        //     menuBox.style.opacity = "";
+        // }
+    </script>
+</body>
+
+</html>

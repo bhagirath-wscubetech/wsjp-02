@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px red solid;
+            float: left;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/1.png" alt="" width="100%">
+    </div>
+    <div class="box">
+        <img src="images/2.png" alt="" width="100%">
+    </div>
+    <div class="box">
+        <img src="images/3.png" alt="" width="100%">
+    </div>
+    <div class="box">
+        <img src="images/4.png" alt="" width="100%">
+    </div>
+    <div class="box">
+        <img src="images/5.png" alt="" width="100%">
+    </div>
+    <button onclick="moveIt()">></button>
+
+    <script>
+        const boxes = document.getElementsByClassName("box");
+        function moveIt() {
+            const allImages = [];
+            // copy all the existing image into an array
+            for (var i = 0; i < boxes.length; i++) {
+                allImages.push(boxes[i].innerHTML);
+            }
+            // move the last image to the zeroth box
+            const lastIndexAllImg = allImages.length - 1;
+            boxes[0].innerHTML = allImages[lastIndexAllImg];
+            // move the image to the corespoinding index
+            for (var i = 1; i < boxes.length; i++) {
+                boxes[i].innerHTML = allImages[i - 1];
+            }
+        }
+    </script>
+</body>
+
+</html>

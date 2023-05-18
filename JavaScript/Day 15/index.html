@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="box">3</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <button onclick="demo()">Click Me</button>
+    <script>
+        const boxes = document.getElementsByClassName("box");
+        console.log(boxes);
+        console.log(boxes[0].innerText); //get
+
+        function demo() {
+            boxes[0].innerText = "Button clicked";//set
+        }
+    </script>
+</body>
+
+</html>

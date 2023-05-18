@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="data" type="text" onkeyup="demo()">
+    <h1 id="res"></h1>
+    <script>
+        const dataElem = document.getElementById("data");
+        const resElem = document.getElementById("res");
+        function demo() {
+            resElem.innerText = dataElem.value;
+        }
+    </script>
+</body>
+
+</html>

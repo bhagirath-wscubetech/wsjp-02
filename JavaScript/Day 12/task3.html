@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 25;
+        var isPrime = true;
+        for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime == true) {
+            console.log('num is prime');
+        } else {
+            console.log('num is not prime');
+        }
+    </script>
+</body>
+
+</html>

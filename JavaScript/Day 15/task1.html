@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="res">0</h1>
+    <button onclick="inc()">Inc</button>
+    <button onclick="dec()">Dec</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+        const resElem = document.getElementById("res");
+
+        var count = 0;
+
+        function inc() {
+            // if (count == 10) return;
+            count++;
+            resElem.innerText = count;
+        }
+        function dec() {
+            // if (count == 0) {
+            //     return;
+            // }
+            count--;
+            resElem.innerText = count;
+        }
+
+        function reset(){
+            count = 0;
+            resElem.innerText = "";
+
+        }
+
+    </script>
+</body>
+
+</html>
