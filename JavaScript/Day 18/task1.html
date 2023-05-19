@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .parent {
+            max-width: 1200px;
+            height: 200px;
+            border: 2px red solid;
+            margin: 10px auto;
+            display: flex;
+        }
+
+        img {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <img src="images/1.png" alt="" onmouseenter="getName(this)">
+        <img src="images/2.png" alt="" onmouseenter="getName(this)">
+        <img src="images/3.png" alt="" onmouseenter="getName(this)">
+        <img src="images/4.png" alt="" onmouseenter="getName(this)">
+        <img src="images/5.png" alt="" onmouseenter="getName(this)">
+    </div>
+    <div>
+        <img id="prev" src="" alt="" style="width:500px;height: 400px;">
+    </div>
+    <h1 id="result"></h1>
+    <script>
+        function getName(img) {
+            // console.log(img.src);
+            prev.src = img.src;
+            // prev.style.backgroundImage = `url(${img.src})`; //es6
+            // prev.style.backgroundImage = "url(" + img.src + ")"; //es5
+        }
+    </script>
+</body>
+
+</html>

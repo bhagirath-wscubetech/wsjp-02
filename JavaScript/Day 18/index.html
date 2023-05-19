@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px red solid;
+            margin: 100px auto;
+            transition: 1s;
+            float: left;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="res"></h1>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">4</div>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">5</div>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">6</div>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">19</div>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">3</div>
+    <div class="box" onmouseenter="toggleColor(this,1)" onmouseleave="toggleColor(this,0)">5</div>
+    <script>
+        const res = document.getElementById("res");
+        // const boxes = document.getElementsByClassName("box")
+        function toggleColor(kuchBhi, flag) {
+            if (flag == 1) {
+                kuchBhi.style.backgroundColor = "red";
+            } else {
+                kuchBhi.style.backgroundColor = "";
+            }
+            res.innerText = kuchBhi.innerText
+        }
+    </script>
+</body>
+
+</html>
