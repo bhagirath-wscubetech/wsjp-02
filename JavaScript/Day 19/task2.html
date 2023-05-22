@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- static event binding -->
+    <button onclick="console.log('hii')">Click1</button>
+    
+    <!-- dynamic event binding -->
+    <button id="btn">Click</button>
+    <button id="stop">Stop</button>
+    <script>
+        function test() {
+            console.log('Helloo');
+        }
+
+        const btn = document.querySelector("#btn");
+
+        btn.addEventListener(
+            "click",
+            test
+        );
+
+        const stop = document.querySelector("#stop");
+        stop.addEventListener(
+            "click",
+            stopIt
+        )
+
+        /**
+         * using anomoyus function
+         * stop.addEventListener(
+                "click",
+                function () {
+                    btn.removeEventListener("click", test);
+                    console.log('Event stopped for click')
+                }
+            )
+        */
+
+        function stopIt() {
+            btn.removeEventListener("click", test);
+            console.log('Event stopped for click')
+        }
+    </script>
+</body>
+
+</html>
