@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 3px red solid;
+            margin: 10px auto;
+        }
+
+        .bg-dark {
+            background-color: darkred;
+        }
+
+        button {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button onclick="addIt()">Add</button>
+    <button onclick="removeIt()">Remove</button>
+    <button onclick="toggleIt()">Toggle</button>
+    <script>
+        const box = document.querySelector(".box");
+
+        function addIt() {
+            // console.log(box.classList);
+            box.classList.add("bg-dark");
+        }
+        function removeIt() {
+            // console.log(box.classList);
+            box.classList.remove("bg-dark");
+        }
+        function toggleIt() {
+            // console.log(box.classList);
+            box.classList.toggle("bg-dark");
+        }
+    </script>
+</body>
+
+</html>

@@ -40,8 +40,6 @@
         }
 
         #bottom {
-            border: 1px red solid;
-            min-height: 400px;
             box-sizing: border-box;
             padding: 10px;
             list-style: none;
@@ -53,6 +51,20 @@
             box-sizing: border-box;
             margin: 10px 0;
             background-color: cornflowerblue;
+            position: relative;
+        }
+
+        .done {
+            text-decoration: line-through;
+            background-color: lightgray !important;
+        }
+
+        #bottom li span {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -63,24 +75,47 @@
             <input type="text" id="item">
             <button id="btn">Add</button>
         </div>
-        <ul id="bottom"></ul>
+        <ul id="bottom">
+
+        </ul>
     </div>
     <script>
         const item = document.querySelector("#item");
         const btn = document.querySelector("#btn");
         const bottom = document.querySelector("#bottom");
 
-        btn.addEventListener(
-            "click",
-            function () {
-                const data = item.value;
-                if (data !== "") {
-                    bottom.innerHTML = bottom.innerHTML + `<li> ${data} </li>`;
-                    item.value = "";
-                }
+        console.log(document.getElementsByTagName("div"));
 
+        item.addEventListener(
+            "keyup",
+            function (event) {
+                if (event.key == "Enter") {
+                    addItem();
+                }
             }
         )
+
+
+        function addItem() {
+            const data = item.value;
+            if (data !== "") {
+                bottom.innerHTML = bottom.innerHTML +
+                    `<li  onclick="this.classList.toggle('done')"> 
+                        ${data} 
+                        <span onclick="removeMe(this)">X</span> 
+                    </li>`;
+                item.value = "";
+            }
+            item.focus();
+        }
+
+        btn.addEventListener(
+            "click",
+            addItem
+        )
+        function removeMe(cross) {
+            cross.parentNode.remove();
+        }
     </script>
 </body>
 
