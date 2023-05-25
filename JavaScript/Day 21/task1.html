@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="fire()">Fire</button>
+    <button onclick="stop()">Stop</button>
+    <script>
+        let timeOutHolder;
+        function fire() {
+            timeOutHolder = setTimeout(
+                function () {
+                    console.log('Hiii');
+                },
+                2000
+            )
+        }
+        function stop() {
+            clearTimeout(timeOutHolder);
+        }
+    </script>
+</body>
+
+</html>

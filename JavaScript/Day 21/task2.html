@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="res">0</h1>
+    <button onclick="start()" id="start">Start</button>
+    <button onclick="stop()" id="stop">Stop</button>
+    <button onclick="reset()" id="reset">Reset</button>
+    <script>
+        var i = 0;
+        var intervalHolder;
+        const res = document.querySelector("#res");
+        const startBtn = document.querySelector("#start");
+        const stopBtn = document.querySelector("#stop");
+        const resetBtn = document.querySelector("#reset");
+
+        function start() {
+            startBtn.disabled = true;
+            intervalHolder = setInterval(
+                function () {
+                    i++;
+                    res.innerText = i;
+                },
+                1000
+            )
+        }
+        function stop() {
+            startBtn.disabled = false;
+            clearInterval(intervalHolder);
+        }
+        function reset() {
+            i = 0;
+            res.innerText = 0;
+            stop();
+        }
+    </script>
+</body>
+
+</html>
