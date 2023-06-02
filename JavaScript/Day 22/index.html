@@ -1,0 +1,20 @@
+<script>
+    function msToYr(ms) {
+        return ms / 1000 / 60 / 60 / 24 / 365;
+    }
+
+
+    const d = new Date();
+    const ac = msToYr(d.getTime());
+
+    const dob = new Date('23 Jan 1999 10:48');
+    // mm/dd/yyyy
+    const ab = msToYr(dob.getTime());
+
+    const bc = ac - ab;
+
+    console.log(parseInt(bc));
+    const extra = bc - parseInt(bc);
+    const months = extra * 12;
+    console.log(months);
+</script>

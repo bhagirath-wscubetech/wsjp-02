@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        h1 {
+            font-size: 100px;
+            text-align: center;
+            font-family: 'Consolas';
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="res">
+
+    </h1>
+    <script>
+        const res = document.querySelector("#res");
+
+        function clock() {
+            const d = new Date();
+            res.innerText = ` 
+                ${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}
+            `
+        }
+        clock(); // init call
+
+        setInterval(
+            clock,
+            1000
+        )
+    </script>
+</body>
+
+</html>

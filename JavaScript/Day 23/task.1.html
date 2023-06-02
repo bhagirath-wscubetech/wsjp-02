@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="user.getDetails()">Click Me</button>
+    <script>
+        const user = {
+            f_name: "Bhagirath",
+            email: "bhagirath@wscubetech.com",
+            getDetails: function () {
+                // console.log("outer", this);
+                const currentObj = this;
+                window.setTimeout(
+                    function () {
+                        console.log("inner", currentObj);
+                    },
+                    2000
+                )
+            }
+        }
+    </script>
+</body>
+
+</html>
