@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            font-size: 100px;
+            text-align: center;
+            height: 300px;
+            border: 1px red solid;
+        }
+
+        .parent {
+            max-width: 1000px;
+            display: flex;
+        }
+
+        button {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="demo1">Click 1</button>
+    <button id="demo2">Click 2</button>
+    <button id="demo3">Toggle</button>
+    <div class="parent">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <script src="js/jquery-3.7.0.min.js"></script>
+
+    <script>
+        const btn1 = $("#demo1")
+        const btn2 = $("#demo2")
+        const btn3 = $("#demo3")
+        const boxes = $(".box");
+
+        btn1.click(
+            function () {
+                // boxes.fadeOut(1000)
+                // boxes.slideUp(5000)
+                // boxes.hide(2000)
+            }
+        )
+        btn2.click(
+            function () {
+                // boxes.fadeIn(1000)
+                // boxes.slideDown(5000)
+                // boxes.show(2000)
+            }
+        )
+
+        btn3.click(
+            function () {
+                // boxes.fadeToggle(1000);
+                // boxes.slideToggle(1000);
+                boxes.toggle(1000);
+            }
+        )
+    </script>
+</body>
+
+</html>

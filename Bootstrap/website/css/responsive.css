@@ -1,0 +1,13 @@
+@media only screen and (max-width:768px) and (min-width:0) {
+    #custom-navbar {
+        background-color: black !important;
+    }
+
+    #custom-navbar * {
+        color: white !important;
+    }
+
+    .banner-img {
+        height: 400px;
+    }
+}

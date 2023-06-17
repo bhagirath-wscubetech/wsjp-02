@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .mySlider {
+            width: 100% !important;
+        }
+
+        .mySlider div {
+            margin: 5px;
+        }
+
+        .mySlider div img {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="counter">1,234,567</span>
+    <div class="container">
+        <section class="variable slider">
+            <div>
+                <img src="http://placehold.it/350x300?text=1">
+            </div>
+            <div>
+                <img src="http://placehold.it/200x300?text=2">
+            </div>
+            <div>
+                <img src="http://placehold.it/100x300?text=3">
+            </div>
+            <div>
+                <img src="http://placehold.it/200x300?text=4">
+            </div>
+            <div>
+                <img src="http://placehold.it/350x300?text=5">
+            </div>
+            <div>
+                <img src="http://placehold.it/300x300?text=6">
+            </div>
+        </section>
+    </div>
+    <div class="container-fluid p-0">
+        <div class="mySlider">
+            <div>
+                <img src="https://picsum.photos/id/237/1000/500" alt="">
+            </div>
+            <div>
+                <img src="https://picsum.photos/id/238/1000/500" alt="">
+            </div>
+            <div>
+                <img src="https://picsum.photos/id/239/1000/500" alt="">
+            </div>
+            <div>
+                <img src="https://picsum.photos/id/240/1000/500" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.mySlider').slick(
+                {
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    cssEase: 'linear',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                                infinite: true,
+                                dots: true
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                }
+            );
+        });
+        $(".variable").slick({
+            dots: true,
+            infinite: true,
+            variableWidth: true
+        });
+
+        $(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+        });
+    </script>
+</body>
+
+</html>
