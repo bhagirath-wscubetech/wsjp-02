@@ -23,6 +23,11 @@ function Person(props) {
                 }
             }>Age:{props.age} </h3>
             <button onClick={toggleHandler}>Toggle</button>
+            <button onClick={
+                () => {
+                    props.handler(props.index)
+                }
+            }>Remove</button>
         </div>
     )
 }
