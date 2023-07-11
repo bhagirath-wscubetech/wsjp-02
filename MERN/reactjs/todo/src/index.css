@@ -17,6 +17,8 @@ code {
   min-height: 600px;
   box-shadow: 0px 0px 3px grey;
   margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .input-box{
   border-bottom: 2px grey solid;
