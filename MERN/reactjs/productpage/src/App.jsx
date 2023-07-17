@@ -7,10 +7,15 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filterCat, setFilterCat] = useState(null);
-
+  const [from, setFrom] = useState(0);
+  const [to, setTo] = useState(0);
+  const [priceFilter, setPriceFilter] = useState(false);
 
   const clearFilter = () => {
     setFilterCat(null);
+    setPriceFilter(false);
+    setFrom(0);
+    setTo(0);
   }
 
   const getProducts = () => {
@@ -49,8 +54,20 @@ function App() {
 
   return (
     <div className="max-w-[1200px] mx-auto p-2 grid grid-cols-4 gap-5">
-      <Filter categories={categories} filterCat={filterCat} categoryHandler={setFilterCat} clearFilter={clearFilter}/>
-      <Listing products={products} filterCat={filterCat} />
+      <Filter priceFilterHandler={setPriceFilter} categories={categories} from={{
+        value: from,
+        handler: setFrom
+      }} to={{
+        value: to,
+        handler: setTo
+      }} filterCat={filterCat} categoryHandler={setFilterCat} clearFilter={clearFilter} />
+      <Listing price={
+        {
+          status: priceFilter,
+          to: to,
+          from: from
+        }
+      } products={products} filterCat={filterCat} />
     </div>
   );
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Listing = ({ products, filterCat }) => {
+const Listing = ({ products, filterCat, price }) => {
 
+    let total = products.length;
     let filteredProducts = [];
     if (filterCat !== null) {
         filteredProducts = products.filter(
@@ -13,30 +14,76 @@ const Listing = ({ products, filterCat }) => {
                 }
             }
         )
+        total = filteredProducts.length;
+    }
+    let advancedFilter = [];
+    if (price.status == true) {
+        if (filterCat !== null) {
+            advancedFilter = filteredProducts.filter(
+                (prod) => {
+                    if (parseFloat(prod.price) >= price.from && parseFloat(prod.price) <= price.to) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            )
+        } else {
+            advancedFilter = products.filter(
+                (prod) => {
+                    // console.log(prod.price, price.to, price.form);
+                    if (parseFloat(prod.price) >= price.from && parseFloat(prod.price) <= price.to) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            )
+        }
+        total = advancedFilter.length;
     }
 
     return (
         <div className='col-span-3'>
-            <h3 className='text-center p-2 text-3xl font-bold'>Product</h3>
+            <h3 className='text-center p-2 text-3xl font-bold'>Product ({total})</h3>
             <div className='grid grid-cols-3 gap-3'>
                 {
 
                     filterCat == null
                         ?
                         (
-                            products.map(
-                                (product, index) => {
-                                    return <Product {...product} key={index} />
-                                }
-                            )
+                            price.status == true
+                                ? (
+                                    advancedFilter.map(
+                                        (product, index) => {
+                                            return <Product {...product} key={index} />
+                                        }
+                                    )
+                                ) : (
+                                    products.map(
+                                        (product, index) => {
+                                            return <Product {...product} key={index} />
+                                        }
+                                    )
+                                )
+
                         )
                         :
                         (
-                            filteredProducts.map(
-                                (product, index) => {
-                                    return <Product {...product} key={index} />
-                                }
-                            )
+                            price.status == true
+                                ? (
+                                    advancedFilter.map(
+                                        (product, index) => {
+                                            return <Product {...product} key={index} />
+                                        }
+                                    )
+                                ) : (
+                                    filteredProducts.map(
+                                        (product, index) => {
+                                            return <Product {...product} key={index} />
+                                        }
+                                    )
+                                )
                         )
                 }
             </div>
