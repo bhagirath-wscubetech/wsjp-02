@@ -5,6 +5,7 @@ import {
 import Listing from "./Pages/Listing";
 import Add from "./Pages/Add";
 import Header from "./Components/Header";
+import User from "./Pages/User";
 
 
 
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Header />,
+  },
+  {
+    path: "/login",
+    element: <User />
   },
   {
     path: "/listing",
@@ -24,7 +29,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-
   return (
     <>
       <RouterProvider router={router} />

@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
+import { useNavigate } from 'react-router-dom';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,8 +25,23 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 const Listing = () => {
-
+    const [user, setUser] = useState(null);
     const [quizzes, setQuiz] = useState([]);
+    const navigator = useNavigate();
+
+    if(user == null){
+        navigator('/login');
+    }
+
+    useEffect(
+        () => {
+            const lsUser = localStorage.getItem("user");
+            if(lsUser !== undefined || lsUser !== null){
+                setUser(lsUser);
+            }
+        },
+        []
+    )
 
     useEffect(
         () => {
@@ -92,28 +108,28 @@ const Listing = () => {
                                                 >
                                                     {quizz.optionA}
                                                 </td>
-                                                <td className="px-6 py-4"  style={
-                                                        {
-                                                            color: quizz.correct == "B" ? 'green' : '',
-                                                            fontWeight: quizz.correct == "B" ? 'bold' : ''
-                                                        }
-                                                    }>
+                                                <td className="px-6 py-4" style={
+                                                    {
+                                                        color: quizz.correct == "B" ? 'green' : '',
+                                                        fontWeight: quizz.correct == "B" ? 'bold' : ''
+                                                    }
+                                                }>
                                                     {quizz.optionB}
                                                 </td>
-                                                <td className="px-6 py-4"  style={
-                                                        {
-                                                            color: quizz.correct == "C" ? 'green' : '',
-                                                            fontWeight: quizz.correct == "C" ? 'bold' : ''
-                                                        }
-                                                    }>
+                                                <td className="px-6 py-4" style={
+                                                    {
+                                                        color: quizz.correct == "C" ? 'green' : '',
+                                                        fontWeight: quizz.correct == "C" ? 'bold' : ''
+                                                    }
+                                                }>
                                                     {quizz.optionC}
                                                 </td>
-                                                <td className="px-6 py-4"  style={
-                                                        {
-                                                            color: quizz.correct == "D" ? 'green' : '',
-                                                            fontWeight: quizz.correct == "D" ? 'bold' : ''
-                                                        }
-                                                    }>
+                                                <td className="px-6 py-4" style={
+                                                    {
+                                                        color: quizz.correct == "D" ? 'green' : '',
+                                                        fontWeight: quizz.correct == "D" ? 'bold' : ''
+                                                    }
+                                                }>
                                                     {quizz.optionD}
                                                 </td>
                                             </tr>

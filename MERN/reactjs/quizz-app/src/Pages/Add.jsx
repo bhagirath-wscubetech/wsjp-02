@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Components/Header';
 import { v1 as uniqueId } from "uuid";
+import { useNavigate } from 'react-router-dom';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
@@ -24,6 +25,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const Add = () => {
+    const [user, setUser] = useState(null);
+    const navigator = useNavigate();
+    if (user == null) {
+        navigator('/login');
+        console.log('Not loggedin')
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
