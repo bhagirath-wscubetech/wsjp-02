@@ -29,15 +29,15 @@ const Listing = () => {
     const [quizzes, setQuiz] = useState([]);
     const navigator = useNavigate();
 
-    if(user == null){
-        navigator('/login');
-    }
+
 
     useEffect(
         () => {
             const lsUser = localStorage.getItem("user");
-            if(lsUser !== undefined || lsUser !== null){
+            if (lsUser !== null) {
                 setUser(lsUser);
+            } else {
+                navigator('/login');
             }
         },
         []

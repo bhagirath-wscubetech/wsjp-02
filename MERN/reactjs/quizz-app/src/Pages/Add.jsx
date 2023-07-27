@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import { v1 as uniqueId } from "uuid";
 import { useNavigate } from 'react-router-dom';
@@ -27,10 +27,18 @@ const db = getDatabase(app);
 const Add = () => {
     const [user, setUser] = useState(null);
     const navigator = useNavigate();
-    if (user == null) {
-        navigator('/login');
-        console.log('Not loggedin')
-    }
+
+    useEffect(
+        () => {
+            const lsUser = localStorage.getItem("user");
+            if (lsUser !== null) {
+                setUser(lsUser);
+            } else {
+                navigator('/login');
+            }
+        },
+        []
+    )
 
     const submitHandler = (event) => {
         event.preventDefault();
