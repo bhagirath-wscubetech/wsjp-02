@@ -19,7 +19,7 @@ const Header = () => {
         },
         {
             name: "Play",
-            url: "/"
+            url: "/play"
         },
     ]
 
