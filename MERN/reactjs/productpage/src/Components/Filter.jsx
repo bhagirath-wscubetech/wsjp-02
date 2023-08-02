@@ -12,7 +12,7 @@ const Filter = ({ categories, priceFilterHandler, categoryHandler, clearFilter, 
     }
 
     return (
-        <div className='h-[400px] sticky top-0'>
+        <div className='h-[400px] sticky top-[100px]'>
             <h3 className='text-center p-2 text-3xl font-bold'>Filter</h3>
             <div className='shadow p-2'>
                 <div className='font-bold text-2xl text-center'>Categories</div>

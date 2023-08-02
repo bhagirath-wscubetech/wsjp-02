@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ProductContext } from '../App';
 
 const Listing = ({ products, filterCat, price }) => {
 
@@ -95,6 +96,7 @@ export default Listing;
 
 
 const Product = (props) => {
+    const {addToCart} = useContext(ProductContext);
     return <div className='shadow p-2'>
         <img src={props.image} className='w-full h-[250px]' alt="" />
         <div className='text-center my-2 h-[100px]'>
@@ -104,7 +106,7 @@ const Product = (props) => {
             $ {props.price}
         </div>
         <div>
-            <button className='block mx-auto hover:bg-[transparent] hover:text-black border hover:border-gray-400 text-white bg-gray-400 p-2 duration-[0.5s]'>Add to Cart</button>
+            <button onClick={() => addToCart(props.id)} className='block mx-auto hover:bg-[transparent] hover:text-black border hover:border-gray-400 text-white bg-gray-400 p-2 duration-[0.5s]'>Add to Cart {props.id}</button>
         </div>
     </div>
 }
