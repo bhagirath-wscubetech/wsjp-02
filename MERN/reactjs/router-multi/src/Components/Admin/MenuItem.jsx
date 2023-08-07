@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillCaretDown } from "react-icons/ai"
+import { Link } from 'react-router-dom';
 const MenuItem = ({ name, url, child }) => {
 
     const [toggle, setToggle] = useState(false);
@@ -9,9 +10,9 @@ const MenuItem = ({ name, url, child }) => {
             cursor: "pointer"
         }
     }>
-        <a href={url} className='nav-link'>
+        <Link to={url} className='nav-link'>
             {name}
-        </a>
+        </Link>
     </li>
 
     const childWaliList = <li onClick={() => setToggle(!toggle)} className='my-2' style={
@@ -40,9 +41,9 @@ const MenuItem = ({ name, url, child }) => {
                         child.map(
                             (c, i) => {
                                 return <li className='p-2' key={i}>
-                                    <a href={c.url} className='nav-link'>
+                                    <Link to={c.url} className='nav-link'>
                                         {c.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             }
                         )

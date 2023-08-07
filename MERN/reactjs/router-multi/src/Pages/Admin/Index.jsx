@@ -3,12 +3,13 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { AiOutlineUser } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import MenuItem from '../../Components/Admin/MenuItem';
+import { Outlet } from 'react-router-dom';
 const Index = () => {
 
     const menu = [
         {
             name: "Dashboard",
-            url: "/",
+            url: "/admin",
             child: null
         },
         {
@@ -17,11 +18,11 @@ const Index = () => {
             child: [
                 {
                     name: "Add",
-                    url: "/category/add"
+                    url: "/admin/category/add"
                 },
                 {
                     name: "View",
-                    url: "/category"
+                    url: "/admin/category"
                 }
             ]
 
@@ -32,11 +33,11 @@ const Index = () => {
             child: [
                 {
                     name: "Add",
-                    url: "/category/add"
+                    url: "/admin/product/add"
                 },
                 {
                     name: "View",
-                    url: "/category"
+                    url: "/admin/product"
                 }
             ]
         },
@@ -46,11 +47,11 @@ const Index = () => {
             child: [
                 {
                     name: "Add",
-                    url: "/category/add"
+                    url: "/admin/color/add"
                 },
                 {
                     name: "View",
-                    url: "/category"
+                    url: "/admin/color"
                 }
             ]
         },
@@ -60,17 +61,17 @@ const Index = () => {
             child: [
                 {
                     name: "Add",
-                    url: "/fabric/add"
+                    url: "/admin/fabric/add"
                 },
                 {
                     name: "View",
-                    url: "/fabric"
+                    url: "/admin/fabric"
                 }
             ]
         },
         {
             name: "User",
-            url: "/user"
+            url: "/admin/user"
         }
     ]
 
@@ -114,6 +115,9 @@ const Index = () => {
                             }} />
                         </div>
                     </div>
+
+                    <Outlet/>
+                            
                 </Col>
             </Row>
         </Container>

@@ -9,7 +9,7 @@ const ProductContext = createContext();
 function App() {
   const [toggle, setToggle] = useState(true);
   const [categories, setCategories] = useState([]);
-  const [cart, setCart] = useState([1,4,7,9]);
+  const [cart, setCart] = useState([1, 4, 7, 9]);
   const [products, setProducts] = useState([]);
   const [filterCat, setFilterCat] = useState(null);
   const [from, setFrom] = useState(0);
@@ -22,6 +22,17 @@ function App() {
     setFrom(0);
     setTo(0);
   }
+
+  const removeFromCart = (id) => {
+    const updatedCart = cart.filter(
+      (d) => {
+        if (d == id) return false;
+        else return true;
+      }
+    )
+    setCart(updatedCart);
+  }
+
 
   const getProducts = () => {
     axios.get('https://fakestoreapi.com/products')
@@ -74,6 +85,7 @@ function App() {
         cart,
         addToCart,
         products,
+        removeFromCart
       }
     }>
       <Header toggle={toggle} handler={setToggle} />
@@ -99,7 +111,7 @@ function App() {
             </div>
           </>
           :
-          <Cart/>
+          <Cart />
       }
     </ProductContext.Provider>
   );

@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { ProductContext } from '../App';
 
 const Cart = () => {
-    const { cart, products } = useContext(ProductContext);
+    const { cart, products, removeFromCart } = useContext(ProductContext);
 
     let cartProducts = [];
     if (products.length != 0 && cart.length != 0) {
         cartProducts = products.filter(
             (prod) => {
                 if (cart.includes(prod.id)) {
-                    return true;    
+                    return true;
                 } else {
                     return false;
                 }
@@ -37,6 +37,7 @@ const Cart = () => {
                         <th scope="col" class="px-6 py-3">
                             Price
                         </th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,9 @@ const Cart = () => {
                                     </td>
                                     <td>{prod.title}</td>
                                     <td>{prod.price}</td>
+                                    <td>
+                                        <button onClick={() => removeFromCart(prod.id)}>Remove</button>
+                                    </td>
                                 </tr>
                             )
                         }
