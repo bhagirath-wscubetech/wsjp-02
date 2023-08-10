@@ -25,8 +25,29 @@ const server = http.createServer(
                 }
             )
         } else if (reqUrl.pathname == "/write" && req.method == "POST") {
-            const fileName = reqUrl.query.filename;
-            res.end("Writing mode");
+            // exception handling
+            try {
+                let body = "";
+                let jsonBody = "";
+                const fileName = reqUrl.query.filename;
+                req.on("data", function (chunk) {
+                    body = chunk.toString();
+                    jsonBody = JSON.parse(body);
+                })
+                req.on("end", function () { 
+                    fs.writeFile(
+                        `files/${fileName}`,
+                        jsonBody.data,
+                        (err) => {
+                            if (err) res.end("Unable to write data");
+                            else res.end("Data added successfully")
+                        }
+                    )
+                })
+            } catch (err) {
+                res.end("Internal server error");
+            }
+
         } else if (reqUrl.pathname == "/delete" && req.method == "DELETE") {
 
         } else {
