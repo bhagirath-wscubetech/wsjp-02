@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='p-5 bg-white flex justify-between'>
+        <div className='p-5 bg-white flex justify-between sticky top-0 z-[200]'>
             <img src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" className='w-[50px]' />
             <ul className='flex gap-10'>
                 <li>

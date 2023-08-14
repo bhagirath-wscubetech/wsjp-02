@@ -1,14 +1,1 @@
-[
-    {
-        "title": "Title 1 sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas nostrum rerum est autem sunt rem eveniet architecto"
-    },
-    {
-        "title": "Title 2 sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas nostrum rerum est autem sunt rem eveniet architecto"
-    },
-    {
-        "title": "Title 3 sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas nostrum rerum est autem sunt rem eveniet architecto"
-    }
-]
+[{"title":"What is inheritance in OOPs?","body":"It is a blueprint or a template for constructing objects. It is used to define a set of properties and methods that will be present in an object belonging to that class.\n\nIt is essentially a user-defined data type that encapsulates data (in the form of fields or properties) and behavior (in the form of methods). The fields or properties define the characteristics of the object, while the methods define what the object can do."}]
