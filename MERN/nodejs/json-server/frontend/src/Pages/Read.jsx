@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 const Read = () => {
     const [blogs, setBlogs] = useState([]);
     const [loader, setLoader] = useState(false);
@@ -68,9 +69,11 @@ const Read = () => {
                         <button onClick={() => deleteData(index)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                             Delete
                         </button>
-                        <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Edit
-                        </button>
+                        <Link to={`/edit/${index}`}>
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Edit
+                            </button>
+                        </Link>
                     </td>
                 </tr>
             )
