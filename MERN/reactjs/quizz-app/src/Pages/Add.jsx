@@ -28,17 +28,17 @@ const Add = () => {
     const [user, setUser] = useState(null);
     const navigator = useNavigate();
 
-    useEffect(
-        () => {
-            const lsUser = localStorage.getItem("user");
-            if (lsUser !== null) {
-                setUser(lsUser);
-            } else {
-                navigator('/login');
-            }
-        },
-        []
-    )
+    // useEffect(
+    //     () => {
+    //         const lsUser = localStorage.getItem("user");
+    //         if (lsUser !== null) {
+    //             setUser(lsUser);
+    //         } else {
+    //             navigator('/login');
+    //         }
+    //     },
+    //     []
+    // )
 
     const submitHandler = (event) => {
         event.preventDefault();

@@ -31,17 +31,17 @@ const Listing = () => {
 
 
 
-    useEffect(
-        () => {
-            const lsUser = localStorage.getItem("user");
-            if (lsUser !== null) {
-                setUser(lsUser);
-            } else {
-                navigator('/login');
-            }
-        },
-        []
-    )
+    // useEffect(
+    //     () => {
+    //         const lsUser = localStorage.getItem("user");
+    //         if (lsUser !== null) {
+    //             setUser(lsUser);
+    //         } else {
+    //             navigator('/login');
+    //         }
+    //     },
+    //     []
+    // )
 
     useEffect(
         () => {
