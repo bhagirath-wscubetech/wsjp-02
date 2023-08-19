@@ -36,7 +36,7 @@ const Read = () => {
     )
 
     function deleteData(index) {
-        axios.delete(`http://localhost:5500/delete/${index}`)
+        axios.delete(`http://localhost:5500/blog/delete/${index}`)
             .then(
                 (success) => {
                     if (success.data.status == 1) {

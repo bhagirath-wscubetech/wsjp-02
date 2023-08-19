@@ -12,7 +12,7 @@ const Create = () => {
         }
         // console.log(data);
         axios.post(
-            "http://localhost:5500/create",
+            "http://localhost:5500/blog/create",
             data
         ).then(
             (success) => {

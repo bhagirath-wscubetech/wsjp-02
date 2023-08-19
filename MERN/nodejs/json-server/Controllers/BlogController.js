@@ -26,10 +26,7 @@ class BlogController {
                 )
             }
         )
-
-
     }
-
     createData(blogsData) {
         return new Promise(
             (res, rej) => {
