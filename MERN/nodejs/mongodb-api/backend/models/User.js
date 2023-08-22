@@ -5,12 +5,12 @@ const UserSchema = new mongoose.Schema(
         name: {
             type: String,
             max: 100,
-            require: true
+            required: true
         },
         email: {
             type: String,
             max: 100,
-            require: true,
+            required: true,
             unique: true
         },
         gender: {
@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            max: 100
+            required: true,
         }
     }
 )

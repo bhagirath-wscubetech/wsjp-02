@@ -5,12 +5,37 @@ const UserControler = require('../controllers/UserController.js');
 const UserRouter = express.Router();
 
 UserRouter.get(
-    "/",
+    "/:id?",
     (req, res) => {
-        const result = new UserControler().getData();
-        res.send("Hello");
+        const result = new UserControler().getData(req.params.id);
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
     }
 )
+
+UserRouter.delete(
+    "/delete/:id",
+    (req, res) => {
+        const result = new UserControler().deleteData(req.params.id);
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
+    }
+)
+
 
 UserRouter.post(
     "/create",
