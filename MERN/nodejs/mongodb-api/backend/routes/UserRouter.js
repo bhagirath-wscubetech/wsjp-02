@@ -53,4 +53,20 @@ UserRouter.post(
     }
 )
 
+UserRouter.patch(
+    "/update/:id",
+    (req, res) => {
+        const result = new UserControler().updateUser(req.params.id, req.body)
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
+    }
+)
+
 module.exports = UserRouter;

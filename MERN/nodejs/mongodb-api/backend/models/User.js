@@ -24,6 +24,14 @@ const UserSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true,
+        },
+        updateAt: {
+            type: String,
+            default: null
+        },
+        createdAt: {
+            type: String,
+            default: null
         }
     }
 )

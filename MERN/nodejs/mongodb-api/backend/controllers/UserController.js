@@ -66,7 +66,7 @@ class UserControler {
                         email: data.email
                     })
                     if (checkUser.length == 0) {
-                        const user = new User(data);
+                        const user = new User({ ...data, createdAt: new Date().getTime() });
                         user.save()
                             .then(
                                 (success) => {
@@ -101,6 +101,44 @@ class UserControler {
             }
         )
     }
+
+    updateUser(id, data) {
+        return new Promise(
+            (res, rej) => {
+                try {
+                    User.updateOne(
+                        {
+                            _id: id
+                        },
+                        {
+                            ...data,
+                            updateAt: new Date().getTime()
+                        }
+                    ).then(
+                        (success) => {
+                            res({
+                                status: 1,
+                                msg: "Data updated successfully"
+                            })
+                        }
+                    ).catch(
+                        (error) => {
+                            rej({
+                                status: 0,
+                                msg: "Unable to update the data"
+                            })
+                        }
+                    )
+                } catch (err) {
+                    rej({
+                        status: 0,
+                        msg: "Internal server error"
+                    })
+                }
+            }
+        )
+    }
+
 }
 
 
