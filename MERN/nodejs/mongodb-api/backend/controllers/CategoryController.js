@@ -6,23 +6,25 @@ class CategoryController {
         return new Promise(
             async (res, rej) => {
                 try {
-                    let users = []
+                    let category = []
                     if (id == null) {
-                        users = await Category.find();
+                        category = await Category.find();
                     } else {
-                        users = await Category.find({
+                        category = await Category.find({
                             _id: id
                         });
                     }
                     res({
                         status: 1,
-                        users
+                        category,
+                        imageBaseUrl: "http://localhost:5000/category/"
+
                     })
                 } catch (err) {
                     rej({
                         status: 0,
                         msg: "Internal server error",
-                        users: []
+                        category: []
                     })
                 }
             }
@@ -34,7 +36,6 @@ class CategoryController {
             async (res, rej) => {
                 try {
                     const fileInfo = generateNameAndDesti(file.name, "category");
-
                     file.mv(fileInfo.desti)
                         .then(
                             () => {

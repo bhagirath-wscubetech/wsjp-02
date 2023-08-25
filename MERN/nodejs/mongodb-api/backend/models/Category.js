@@ -31,7 +31,7 @@ const CategorySchema = new mongoose.Schema(
         },
         createdAt: {
             type: String,
-            default: null
+            default: new Date().getTime()
         }
     }
 )

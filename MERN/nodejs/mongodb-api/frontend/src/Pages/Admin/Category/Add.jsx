@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import axios from "axios";
 import { MainContext } from '../../../Context/Main';
 const Add = () => {
-    const { BASEURL, CATEGORY_BASEURL } = useContext(MainContext);
+    const { BASEURL, CATEGORY_BASEURL, notify } = useContext(MainContext);
     const slug_ref = useRef();
 
     const submitHandler = (event) => {
@@ -22,14 +22,24 @@ const Add = () => {
 
             axios.post(BASEURL + CATEGORY_BASEURL + "/create", formData)
                 .then(
-                    (success) => console.log(success)
+                    (success) => {
+                        console.log(success);
+                        if (success.data.status == 1) {
+                            notify(success.data.msg, "success");
+                            form.reset()
+                        } else {
+                            notify(success.data.msg, "error");
+                        }
+                    }
                 )
                 .catch(
                     (error) => console.log(error)
+
                 )
 
         } else {
-
+            notify("Please fill all the data", "error");
+            form.category_name.focus();
         }
     }
 
