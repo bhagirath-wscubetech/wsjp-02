@@ -43,8 +43,6 @@ CategoryRouter.post(
         createParentPath: true
     }),
     (req, res) => {
-        // console.log(req.body);
-        // console.log(req.files.image);
         const result = new CategoryController().create(req.body, req.files.image);
         result.then(
             (success) => {
@@ -60,8 +58,33 @@ CategoryRouter.post(
 
 CategoryRouter.patch(
     "/update/:id",
+    fileUpload({
+        createParentPath: true
+    }),
     (req, res) => {
-        const result = new CategoryController().updateUser(req.params.id, req.body)
+        let result = ""
+        if (req.files == null) {
+            result = new CategoryController().updateData(req.params.id, req.body, null);
+        } else {
+            result = new CategoryController().updateData(req.params.id, req.body, req.files.image);
+        }
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
+    }
+)
+
+
+CategoryRouter.patch(
+    "/status-update/:id",
+    (req, res) => {
+        const result = new CategoryController().changeStatus(req.params.id, req.body);
         result.then(
             (success) => {
                 res.send(success);

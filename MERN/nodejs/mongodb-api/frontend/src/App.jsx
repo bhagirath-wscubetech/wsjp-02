@@ -2,17 +2,21 @@ import { Button } from 'react-bootstrap';
 import AdminIndex from './Pages/Admin/Index';
 import CategoryAdd from "./Pages/Admin/Category/Add";
 import CategoryView from "./Pages/Admin/Category/View";
+import CategoryEdit from "./Pages/Admin/Category/Edit";
 import ProductAdd from "./Pages/Admin/Product/Add";
 import ProductView from "./Pages/Admin/Product/View";
+import ColorAdd from "./Pages/Admin/Color/Add";
+import ColorView from "./Pages/Admin/Color/View";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dasboard from './Pages/Admin/Dashboard';
+import Home from './Pages/Home';
 function App() {
 
   const routes = createBrowserRouter(
     [
       {
         path: '/',
-        element: <h1>Website page</h1>
+        element: <Home />
       },
       {
         path: "/admin",
@@ -29,6 +33,18 @@ function App() {
           {
             path: "category/add",
             element: <CategoryAdd />
+          },
+          {
+            path: "category/edit/:id",
+            element: <CategoryEdit />
+          },
+          {
+            path: "color",
+            element: <ColorView />
+          },
+          {
+            path: "color/add",
+            element: <ColorAdd />
           },
           {
             path: "product",

@@ -20,6 +20,7 @@ const Add = () => {
             formData.append("slug", slug);
             formData.append("image", image);
 
+
             axios.post(BASEURL + CATEGORY_BASEURL + "/create", formData)
                 .then(
                     (success) => {

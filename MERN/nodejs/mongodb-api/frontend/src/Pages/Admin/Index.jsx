@@ -78,7 +78,7 @@ const Index = () => {
     return (
         <Container fluid>
             <Row>
-                <Col md={2} className='p-0 d-none d-md-block' style={{
+                <Col md={2} className='p-0 d-none d-md-block sticky top-0' style={{
                     height: "100vh",
                     background: "rgb(78, 115, 223)"
                 }}>
@@ -97,9 +97,10 @@ const Index = () => {
 
                 </Col>
                 <Col md={10} className='p-0'>
-                    <div className='py-2 px-3 shadow d-flex justify-content-end' style={
+                    <div className='bg-white py-2 px-3 shadow d-flex justify-content-end' style={
                         {
-                            gap: 20
+                            gap: 20,
+                            zIndex: 9999
                         }
                     }>
                         <div>
@@ -116,8 +117,8 @@ const Index = () => {
                         </div>
                     </div>
 
-                    <Outlet/>
-                            
+                    <Outlet />
+
                 </Col>
             </Row>
         </Container>

@@ -15,7 +15,7 @@ const MenuItem = ({ name, url, child }) => {
         </Link>
     </li>
 
-    const childWaliList = <li onClick={() => setToggle(!toggle)} className='my-2' style={
+    const childWaliList = <li onClick={() => setToggle(!toggle)} className='flex items-center gap-3 my-2' style={
         {
             cursor: "pointer"
         }

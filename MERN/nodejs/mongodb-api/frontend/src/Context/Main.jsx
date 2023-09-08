@@ -7,6 +7,8 @@ const MainContext = createContext();
 const Main = (props) => {
     const BASEURL = process.env.REACT_APP_API_BASE_URL;
     const CATEGORY_BASEURL = process.env.REACT_APP_CATEGORY_BASE_URL;
+    const COLOR_BASEURL = process.env.REACT_APP_COLOR_BASE_URL;
+    const PRODUCT_BASEURL = process.env.REACT_APP_PRODUCT_BASE_URL;
 
     const notify = (msg, type) => {
         toast(msg, {
@@ -16,7 +18,7 @@ const Main = (props) => {
 
     return (
         <MainContext.Provider value={
-            { BASEURL, CATEGORY_BASEURL, notify }
+            { BASEURL, CATEGORY_BASEURL, COLOR_BASEURL, notify, PRODUCT_BASEURL }
         }>
             <ToastContainer />
             {props.children}
