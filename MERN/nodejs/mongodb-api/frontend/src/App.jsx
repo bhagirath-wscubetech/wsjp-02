@@ -10,13 +10,30 @@ import ColorView from "./Pages/Admin/Color/View";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dasboard from './Pages/Admin/Dashboard';
 import Home from './Pages/Home';
+import WebsiteMain from './Pages/WebsiteMain';
+import Store from './Pages/Store';
+import RegisterAdmin from './Pages/Admin/RegisterAdmin';
 function App() {
 
   const routes = createBrowserRouter(
     [
       {
         path: '/',
-        element: <Home />
+        element: <WebsiteMain />,
+        children: [
+          {
+            path: "",
+            element: <Home />
+          },
+          {
+            path: "/store",
+            element: <Store />
+          }
+        ]
+      },
+      {
+        path: "/admin/login",
+        element: <h1>Admin Login</h1>
       },
       {
         path: "/admin",
@@ -53,6 +70,10 @@ function App() {
           {
             path: "product/add",
             element: <ProductAdd />
+          },
+          {
+            path: "register-admin",
+            element: <RegisterAdmin />
           },
           {
             path: '*',

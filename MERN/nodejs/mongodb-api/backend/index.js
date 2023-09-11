@@ -6,7 +6,9 @@ const CategoryRouter = require('./routes/CategoryRouter.js');
 const bodyParser = require('body-parser');
 const ColorRouter = require('./routes/ColorRouter.js');
 const ProductRouter = require('./routes/ProductRouter.js');
+const AdminRouter = require('./routes/AdminRouter.js');
 const PORT = 5000;
+require('dotenv').config('.env');
 
 
 const app = express();
@@ -18,9 +20,10 @@ app.use("/user", UserRouter);
 app.use("/category", CategoryRouter);
 app.use("/color", ColorRouter);
 app.use("/product", ProductRouter);
+app.use("/admin", AdminRouter);
 
 mongoose.connect(
-    "mongodb+srv://wscubetech:MuOGSDnCYkdGUnoH@cluster0.6qpqbkk.mongodb.net/?retryWrites=true&w=majority"
+    process.env.DB_URL
 ).then(
     () => {
         app.listen(PORT, () => console.log('Server started'));

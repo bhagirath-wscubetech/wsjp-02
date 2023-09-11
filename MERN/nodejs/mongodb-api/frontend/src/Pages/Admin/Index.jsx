@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { AiOutlineUser } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import MenuItem from '../../Components/Admin/MenuItem';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { MainContext } from '../../Context/Main';
 const Index = () => {
+    const { admin } = useContext(MainContext);
+    const navigate = useNavigate();
+
+
+    useEffect(
+        () => {
+            if (admin == null) {
+                navigate("/admin/login");
+            }
+        },
+        []
+    )
 
     const menu = [
         {
@@ -72,6 +85,10 @@ const Index = () => {
         {
             name: "User",
             url: "/admin/user"
+        },
+        {
+            name: "Register Admin",
+            url: "/admin/register-admin"
         }
     ]
 

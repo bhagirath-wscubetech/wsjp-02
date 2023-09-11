@@ -1,8 +1,8 @@
-const User = require('../models/User.js');
+const Admin = require('../models/Admin.js');
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr("ws@123!!jaipur");
 
-class UserControler {
+class AdminController {
 
     deleteData(id = null) {
         return new Promise(
@@ -33,46 +33,48 @@ class UserControler {
         return new Promise(
             async (res, rej) => {
                 try {
-                    let users = []
+                    let admin = []
                     if (id == null) {
-                        users = await User.find();
+                        admin = await Admin.find();
                     } else {
-                        users = await User.find({
+                        admin = await Admin.find({
                             _id: id
                         });
                     }
                     res({
                         status: 1,
-                        users
+                        admin
                     })
                 } catch (err) {
                     rej({
                         status: 0,
                         msg: "Internal server error",
-                        users: []
+                        admin: []
                     })
                 }
             }
         )
     }
 
-    createUser(data) {
+    createAdmin(data) {
         const encPass = cryptr.encrypt(data.password);
         data.password = encPass;
         return new Promise(
             async (res, rej) => {
                 if (data.name !== "" && data.email !== "" && data.password !== "") {
-                    const checkUser = await User.find({
+                    const checkAdmin = await Admin.find({
                         email: data.email
                     })
-                    if (checkUser.length == 0) {
-                        const user = new User({ ...data, createdAt: new Date().getTime() });
-                        user.save()
+                    if (checkAdmin.length == 0) {
+                        const admin = new Admin(
+                            { ...data, createdAt: new Date().getTime() }
+                        );
+                        admin.save()
                             .then(
                                 (success) => {
                                     res({
                                         status: 1,
-                                        msg: "User created",
+                                        msg: "Admin created",
                                         data: success
                                     })
                                 }
@@ -80,7 +82,7 @@ class UserControler {
                                 (error) => {
                                     rej({
                                         status: 0,
-                                        msg: "Unable to create the user"
+                                        msg: "Unable to create the admin"
                                     })
                                 }
                             )
@@ -102,11 +104,11 @@ class UserControler {
         )
     }
 
-    updateUser(id, data) {
+    updateAdmin(id, data) {
         return new Promise(
             (res, rej) => {
                 try {
-                    User.updateOne(
+                    Admin.updateOne(
                         {
                             _id: id
                         },
@@ -142,4 +144,4 @@ class UserControler {
 }
 
 
-module.exports = UserControler;
+module.exports = AdminController;

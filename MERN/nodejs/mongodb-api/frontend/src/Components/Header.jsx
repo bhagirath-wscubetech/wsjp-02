@@ -4,6 +4,9 @@ import { AiFillCaretDown, AiFillCloseCircle } from "react-icons/ai"
 import { AiOutlineUser } from "react-icons/ai"
 import { BsHandbag } from "react-icons/bs";
 import { FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+
 const Header = () => {
     const [menuToggle, setMenuToggle] = useState(false);
     const menuItems = [
@@ -73,7 +76,7 @@ const Header = () => {
                             (item, index) => {
                                 return (
                                     <li key={index}>
-                                        <a href={item.link}>{item.name}</a>
+                                        <Link to={item.link}>{item.name}</Link>
                                     </li>
                                 )
                             }
@@ -89,7 +92,7 @@ const Header = () => {
                             (item, index) => {
                                 return (
                                     <li key={index}>
-                                        <a href={item.link}>{item.name}</a>
+                                        <Link to={item.link}>{item.name}</Link>
                                     </li>
                                 )
                             }
