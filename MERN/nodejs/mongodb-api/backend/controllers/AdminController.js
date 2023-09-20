@@ -4,6 +4,44 @@ const cryptr = new Cryptr("ws@123!!jaipur");
 
 class AdminController {
 
+    login(data) {
+        return new Promise(
+            async (res, rej) => {
+                const admin = await Admin.findOne({ email: data.email });
+                if (admin == undefined || admin == null) {
+                    rej(
+                        {
+                            msg: "Invalid email",
+                            status: 0
+                        }
+                    )
+                } else {
+                    const decPass = cryptr.decrypt(admin.password);
+                    if (data.password == decPass) {
+                        admin.password = "";
+                        const token = cryptr.encrypt(admin._id);
+                        res(
+                            {
+                                msg: "Login success",
+                                admin,
+                                token,
+                                status: 1
+                            }
+                        )
+                    } else {
+                        rej(
+                            {
+                                msg: "Invalid password",
+                                status: 0
+                            }
+                        )
+                    }
+                }
+
+            }
+        )
+    }
+
     deleteData(id = null) {
         return new Promise(
             (res, rej) => {

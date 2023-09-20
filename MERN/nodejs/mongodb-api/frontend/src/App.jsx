@@ -13,6 +13,7 @@ import Home from './Pages/Home';
 import WebsiteMain from './Pages/WebsiteMain';
 import Store from './Pages/Store';
 import RegisterAdmin from './Pages/Admin/RegisterAdmin';
+import AdminLogin from './Pages/Admin/Login';
 function App() {
 
   const routes = createBrowserRouter(
@@ -33,7 +34,7 @@ function App() {
       },
       {
         path: "/admin/login",
-        element: <h1>Admin Login</h1>
+        element: <AdminLogin />
       },
       {
         path: "/admin",

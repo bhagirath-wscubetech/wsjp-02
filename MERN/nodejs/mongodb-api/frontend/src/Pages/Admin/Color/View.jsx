@@ -5,10 +5,10 @@ import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 const View = () => {
     const [colors, setColor] = useState([]);
-    const { BASEURL, COLOR_BASEURL, notify } = useContext(MainContext);
+    const { BASEURL, COLOR_BASEURL, notify,token } = useContext(MainContext);
     useEffect(
         () => {
-            axios.get(BASEURL + COLOR_BASEURL)
+            axios.get(BASEURL + COLOR_BASEURL, {headers:{Authorization:token}})
                 .then(
                     (success) => {
                         if (success.data.status == 1) {

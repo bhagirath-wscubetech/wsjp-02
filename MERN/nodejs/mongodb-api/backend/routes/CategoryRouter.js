@@ -1,6 +1,7 @@
 const express = require('express');
 const CategoryController = require('../controllers/CategoryController.js');
 const fileUpload = require('express-fileupload');
+const { validateUserRequest } = require('../helper.js');
 
 const CategoryRouter = express.Router();
 

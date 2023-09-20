@@ -9,15 +9,19 @@ const Index = () => {
     const { admin } = useContext(MainContext);
     const navigate = useNavigate();
 
-
+    const goToLogin = () => {
+        navigate("/admin/login");
+    }
+    
     useEffect(
         () => {
             if (admin == null) {
-                navigate("/admin/login");
-            }
+                goToLogin()
+            } 
         },
         []
     )
+
 
     const menu = [
         {
@@ -120,13 +124,13 @@ const Index = () => {
                             zIndex: 9999
                         }
                     }>
-                        <div>
-                            User
+                        <div className="flex gap-2">
+                            {admin?.name}
                             <AiOutlineUser style={{
                                 fontSize: 20
                             }} />
                         </div>
-                        <div>
+                        <div className="flex gap-2">
                             Logout
                             <BiLogOut style={{
                                 fontSize: 20

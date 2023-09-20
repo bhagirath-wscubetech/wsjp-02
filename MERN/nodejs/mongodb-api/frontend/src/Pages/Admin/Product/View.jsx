@@ -5,11 +5,15 @@ import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 const View = () => {
     const [products, setProduct] = useState([]);
-    const { BASEURL, PRODUCT_BASEURL, notify } = useContext(MainContext);
+    const { BASEURL, PRODUCT_BASEURL, notify, token } = useContext(MainContext);
     const [imgBaseUrl, setBaseUrl] = useState("")
     useEffect(
         () => {
-            axios.get(BASEURL + PRODUCT_BASEURL)
+            axios.get(BASEURL + PRODUCT_BASEURL, {
+                headers: {
+                    Authorization: token
+                }
+            })
                 .then(
                     (success) => {
                         if (success.data.status == 1) {

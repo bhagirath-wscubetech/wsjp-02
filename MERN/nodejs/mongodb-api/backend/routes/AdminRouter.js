@@ -6,6 +6,7 @@ const AdminRouter = express.Router();
 AdminRouter.get(
     "/:id?",
     (req, res) => {
+        // checking if the request is valid
         const result = new AdminController().getData(req.params.id);
         result.then(
             (success) => {
@@ -56,6 +57,22 @@ AdminRouter.patch(
     "/update/:id",
     (req, res) => {
         const result = new AdminController().updateAdmin(req.params.id, req.body)
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
+    }
+)
+
+AdminRouter.post(
+    "/login",
+    (req, res) => {
+        const result = new AdminController().login(req.body)
         result.then(
             (success) => {
                 res.send(success);
