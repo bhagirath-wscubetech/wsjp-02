@@ -16,9 +16,9 @@ const cryptr = new Cryptr("ws@123!!jaipur");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('public'))
+app.use(express.static('public'));
 
-app.use(auth); //calling of a middleware
+// app.use(auth); //calling of a middleware
 
 
 app.use("/user", UserRouter);

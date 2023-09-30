@@ -1,6 +1,7 @@
 const { generateNameAndDesti } = require('../helper.js');
 const fs = require('fs');
 const Category = require('../models/Category.js');
+const Product = require('../models/Product.js');
 class CategoryController {
 
     getData(id = null) {
@@ -8,16 +9,41 @@ class CategoryController {
             async (res, rej) => {
                 try {
                     let category = []
+                    let categoryData = [];
                     if (id == null) {
                         category = await Category.find();
+                        categoryData =
+                            await Promise.all(
+                                category.map(
+                                    async (cat) => {
+                                        const pc = await Product.countDocuments({ category: cat._id });
+                                        return {
+                                            ...cat.toJSON(),
+                                            product_count: pc
+                                        }
+                                    }
+                                )
+                            )
                     } else {
                         category = await Category.find({
                             _id: id
                         });
+                        categoryData =
+                            await Promise.all(
+                                category.map(
+                                    async (cat) => {
+                                        const pc = await Product.countDocuments({ category: cat._id });
+                                        return {
+                                            ...cat.toJSON(),
+                                            product_count: pc
+                                        }
+                                    }
+                                )
+                            )
                     }
                     res({
                         status: 1,
-                        category,
+                        category: categoryData,
                         imageBaseUrl: "http://localhost:5000/uploads/category/"
 
                     })

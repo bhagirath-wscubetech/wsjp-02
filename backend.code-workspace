@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "MERN/nodejs/mongodb-api/backend"
+		},
+		{
+			"path": "MERN/reactjs/redux-thunk"
+		}
+	],
+	"settings": {}
+}

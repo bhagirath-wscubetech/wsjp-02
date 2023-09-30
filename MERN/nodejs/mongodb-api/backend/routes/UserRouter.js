@@ -68,5 +68,40 @@ UserRouter.patch(
         )
     }
 )
+UserRouter.post(
+    "/login",
+    (req, res) => {
+        const result = new UserControler().login(req.body)
+        result.then(
+            (success) => {
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                res.send(error)
+            }
+        )
+    }
+)
+
+UserRouter.post(
+    "/add-to-cart/:id",
+    (req, res) => {
+        const result = new UserControler().addToCart(req.params.id, req.body);
+        result.then(
+            (success) => {
+                console.log("success",success);
+                res.send(success);
+            }
+        ).catch(
+            (error) => {
+                console.log("error",error);
+                res.send(error)
+            }
+        )
+    }
+)
+
+
 
 module.exports = UserRouter;

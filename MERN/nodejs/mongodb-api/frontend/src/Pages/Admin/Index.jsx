@@ -15,9 +15,9 @@ const Index = () => {
     
     useEffect(
         () => {
-            if (admin == null) {
-                goToLogin()
-            } 
+            // if (admin == null) {
+            //     goToLogin()
+            // } 
         },
         []
     )

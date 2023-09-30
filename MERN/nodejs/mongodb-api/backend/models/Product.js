@@ -20,12 +20,12 @@ const ProductSchema = new mongoose.Schema(
             default: 1
         },
         category: {
-            type: String,
-            required: true
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Category',
         },
         color: {
-            type: String,
-            required: true
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Color',
         },
         image: {
             type: String,

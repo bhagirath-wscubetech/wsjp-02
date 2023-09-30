@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const getCategoies = createAsyncThunk(
     "category/getCategoies",
     async () => {
-        console.log('Hello');
-        const response = await fetch('https://fakestoreapi.com/products/categories');
+        
+        const response = await fetch('http://localhost:5000/category');
         const json = await response.json();
         return json;
     }
@@ -12,7 +12,8 @@ const getCategoies = createAsyncThunk(
 
 
 const initialState = {
-    category: []
+    category: [],
+    imageBaseUrl: ""
 }
 
 const categorySlice = createSlice(
@@ -23,7 +24,8 @@ const categorySlice = createSlice(
             builder.addCase(
                 getCategoies.fulfilled,
                 (state, action) => {
-                    state.category = action.payload;
+                    state.category = action.payload.category;
+                    state.imageBaseUrl = action.payload.imageBaseUrl
                 }
             )
             builder.addCase(

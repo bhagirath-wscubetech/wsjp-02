@@ -4,6 +4,75 @@ const cryptr = new Cryptr("ws@123!!jaipur");
 
 class UserControler {
 
+    addToCart(id, cart) {
+        return new Promise(
+            (res, rej) => {
+                User.updateOne(
+                    { _id: id },
+                    { cart: JSON.stringify(cart) }
+                ).then(
+                    (success) => {
+                        res(
+                            {
+                                msg: "Added to cart",
+                                status: 1
+                            }
+                        )
+                    }
+                ).catch(
+                    (error) => {
+                        rej(
+                            {
+                                msg: "Unable to add to cart",
+                                status: 0
+                            }
+                        )
+                    }
+                )
+            }
+        )
+    }
+
+
+    login(data) {
+        return new Promise(
+            async (res, rej) => {
+                const user = await User.findOne({ email: data.email });
+                if (user == undefined || user == null) {
+                    rej(
+                        {
+                            msg: "Invalid email",
+                            status: 0
+                        }
+                    )
+                } else {
+                    const decPass = cryptr.decrypt(user.password);
+                    if (data.password == decPass) {
+                        user.password = "";
+                        const token = cryptr.encrypt(user._id);
+                        res(
+                            {
+                                msg: "Login success",
+                                user,
+                                token,
+                                status: 1
+                            }
+                        )
+                    } else {
+                        rej(
+                            {
+                                msg: "Invalid password",
+                                status: 0
+                            }
+                        )
+                    }
+                }
+
+            }
+        )
+    }
+
+
     deleteData(id = null) {
         return new Promise(
             (res, rej) => {

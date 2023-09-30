@@ -3,8 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const getProucts = createAsyncThunk(
     "proudct/getProducts",
     async () => {
-        console.log('Hello');
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('http://localhost:5000/product');
         const json = await response.json();
         return json;
     }
@@ -12,7 +11,8 @@ const getProucts = createAsyncThunk(
 
 
 const initialState = {
-    product: []
+    product: [],
+    baseUrl: ""
 }
 
 const productSlice = createSlice(
@@ -23,7 +23,8 @@ const productSlice = createSlice(
             builder.addCase(
                 getProucts.fulfilled,
                 (state, action) => {
-                    state.product = action.payload;
+                    state.product = action.payload.product;
+                    state.baseUrl = action.payload.imageBaseUrl
                 }
             )
             builder.addCase(
