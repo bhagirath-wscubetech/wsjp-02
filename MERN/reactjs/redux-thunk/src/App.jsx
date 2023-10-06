@@ -10,6 +10,8 @@ import Checkout from "./Checkout";
 import { lsToState } from "./Reducers/Cart";
 import { lsToUserState } from "./Reducers/User";
 import axios from "axios";
+import Login from "./Login";
+import OrderListing from "./OrderListing";
 function App() {
   const dispatch = useDispatch();
   const { cart } = useSelector(store => store.cart);
@@ -25,23 +27,22 @@ function App() {
     []
   )
 
-  useEffect(
-    () => {
-      if (user != null) {
-        axios.post(
-          `http://localhost:5000/user/add-to-cart/${user._id}`,
-          cart
-        ).then(
-          (success) => {
-            console.log(success);
-          }
-        ).catch(
-          (err) => console.log(err)
-        )
-      }
-    },
-    [cart]
-  )
+  // useEffect(
+  //   () => {
+  //     if (user != null) {
+  //       axios.post(
+  //         `http://localhost:5000/user/add-to-cart/${user._id}`,
+  //         cart
+  //       ).then(
+  //         (success) => {
+  //         }
+  //       ).catch(
+  //         (err) => console.log(err)
+  //       )
+  //     }
+  //   },
+  //   [cart]
+  // )
 
   const routes = createBrowserRouter(
     [
@@ -58,8 +59,16 @@ function App() {
             element: <Cart />
           },
           {
+            path: "login",
+            element: <Login />
+          },
+          {
             path: "checkout",
             element: <Checkout />
+          },
+          {
+            path: "my-order",
+            element: <OrderListing />
           }
         ]
       }

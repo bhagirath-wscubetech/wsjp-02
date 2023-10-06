@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './Reducers/Cart';
 import { Link, useParams } from 'react-router-dom';
 const Product = ({ name }) => {
-    console.log(name);
     const dispatch = useDispatch();
     let { product, baseUrl } = useSelector(store => store.product);
     const { category } = useSelector(store => store.category);

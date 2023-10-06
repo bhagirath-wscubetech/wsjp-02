@@ -10,6 +10,8 @@ const AdminRouter = require('./routes/AdminRouter.js');
 const PORT = 5000;
 const Cryptr = require('cryptr');
 const auth = require('./middlewares/auth.js');
+const CartRouter = require('./routes/CartRouter.js');
+const OrderRouter = require('./routes/OrderRouter.js');
 require('dotenv').config('.env');
 const cryptr = new Cryptr("ws@123!!jaipur");
 
@@ -26,6 +28,8 @@ app.use("/category", CategoryRouter);
 app.use("/color", ColorRouter);
 app.use("/product", ProductRouter);
 app.use("/admin", AdminRouter);
+app.use("/cart", CartRouter);
+app.use('/order', OrderRouter);
 
 app.get("/decrypt-password/:password", (req, res) => {
     res.send(cryptr.decrypt(req.params.password));

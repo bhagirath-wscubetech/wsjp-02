@@ -12,7 +12,6 @@ function generateNameAndDesti(original_name, modal) {
 }
 
 function validateUserRequest(token) {
-    console.log("validateUserRequest",token);
     return new Promise(
         async (res, rej) => {
             const id = cryptr.decrypt(token);

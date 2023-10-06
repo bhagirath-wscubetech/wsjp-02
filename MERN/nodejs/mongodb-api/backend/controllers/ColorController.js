@@ -46,7 +46,6 @@ class ColorController {
                             }
                         ).catch(
                             (error) => {
-                                console.log(error);
                                 rej(
                                     {
                                         status: 0,

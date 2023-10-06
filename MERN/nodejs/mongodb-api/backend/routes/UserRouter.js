@@ -1,7 +1,5 @@
 const express = require('express');
 const UserControler = require('../controllers/UserController.js');
-
-
 const UserRouter = express.Router();
 
 UserRouter.get(
@@ -83,25 +81,4 @@ UserRouter.post(
         )
     }
 )
-
-UserRouter.post(
-    "/add-to-cart/:id",
-    (req, res) => {
-        const result = new UserControler().addToCart(req.params.id, req.body);
-        result.then(
-            (success) => {
-                console.log("success",success);
-                res.send(success);
-            }
-        ).catch(
-            (error) => {
-                console.log("error",error);
-                res.send(error)
-            }
-        )
-    }
-)
-
-
-
 module.exports = UserRouter;

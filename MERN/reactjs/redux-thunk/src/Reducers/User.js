@@ -11,8 +11,6 @@ const lsToUserState = createAsyncThunk(
     () => {
         const lsUser = localStorage.getItem("user");
         const lsToken = localStorage.getItem("token");
-        console.log(lsUser);
-        console.log(lsToken);
         let user = null;
         let token = null;
         if (lsUser != undefined || lsUser != null) {
@@ -21,7 +19,6 @@ const lsToUserState = createAsyncThunk(
         if (lsToken != undefined || lsToken != null) {
             token = lsToken;
         }
-        console.log("user thunk", { user, token })
         return { user, token };
     }
 )

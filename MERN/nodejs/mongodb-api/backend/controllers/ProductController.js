@@ -53,7 +53,6 @@ class ProductController {
                                         }
                                     ).catch(
                                         (err) => {
-                                            console.log(err);
                                             rej(
                                                 {
                                                     status: 0,

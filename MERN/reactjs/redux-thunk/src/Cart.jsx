@@ -8,7 +8,6 @@ const Cart = () => {
     const navigate = useNavigate();
     const { cart } = useSelector(store => store.cart);
     const { user } = useSelector(store => store.user);
-    const [pop, setPop] = useState(false);
     const { product, baseUrl } = useSelector(store => store.product);
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
@@ -49,28 +48,14 @@ const Cart = () => {
 
     function checkOut() {
         if (user == null) {
-            setPop(true);
+            navigate("/login");
         } else {
             navigate("/checkout");
         }
     }
 
-    console.log("list", list);
-
     return (
         <>
-            <div className='w-full h-screen fixed z-[9999]  justify-center items-center top-0'
-                style={
-                    {
-                        background: "rgba(0,0,0,0.6)",
-                        display: pop == true ? 'flex' : 'none'
-                    }
-                }
-            >
-                <div className='shadow rounded w-[500px] h-[400px] bg-white'>
-                    <Login url={"/checkout"} closeHandler={setPop}/>
-                </div>
-            </div>
             <div className=" bg-gray-100 pt-20">
                 <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
                 {

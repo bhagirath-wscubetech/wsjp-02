@@ -4,36 +4,6 @@ const cryptr = new Cryptr("ws@123!!jaipur");
 
 class UserControler {
 
-    addToCart(id, cart) {
-        return new Promise(
-            (res, rej) => {
-                User.updateOne(
-                    { _id: id },
-                    { cart: JSON.stringify(cart) }
-                ).then(
-                    (success) => {
-                        res(
-                            {
-                                msg: "Added to cart",
-                                status: 1
-                            }
-                        )
-                    }
-                ).catch(
-                    (error) => {
-                        rej(
-                            {
-                                msg: "Unable to add to cart",
-                                status: 0
-                            }
-                        )
-                    }
-                )
-            }
-        )
-    }
-
-
     login(data) {
         return new Promise(
             async (res, rej) => {

@@ -7,7 +7,6 @@ const ProductRouter = express.Router();
 ProductRouter.get(
     "/:id?",
     (req, res) => {
-        console.log(req.body);
         const result = new ProductController().getData(req.params.id, req.body);
         result.then(
             (success) => {

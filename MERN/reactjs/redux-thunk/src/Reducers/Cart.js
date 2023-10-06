@@ -4,7 +4,6 @@ const lsToState = createAsyncThunk(
     "cart/lsToState",
     () => {
         const lsCart = localStorage.getItem("cart");
-        console.log(lsCart);
         if (lsCart != undefined || lsCart != null) {
             return JSON.parse(lsCart);
         } else {
@@ -62,6 +61,9 @@ const cartSlice = createSlice(
                 )
                 state.cart = newCart;
             },
+            updateCart: (state, action) => {
+                state.cart = action.payload.cart;
+            },
             addToCart: (state, action) => {
                 let flag = false; // the product does not exists in the cart already
                 const pId = action.payload.pId;
@@ -101,6 +103,10 @@ const cartSlice = createSlice(
                     }
                 )
                 state.cart = newCart;
+            },
+            emptyCart: (state) => {
+                state.cart = [];
+                localStorage.removeItem("cart");
             }
         },
         extraReducers: (builder) => {
@@ -113,6 +119,6 @@ const cartSlice = createSlice(
         }
     }
 )
-export const { addToCart, removeFromCart, incCart, decCart } = cartSlice.actions;
+export const { addToCart, emptyCart, removeFromCart, incCart, decCart, updateCart } = cartSlice.actions;
 export { lsToState };
 export default cartSlice.reducer;
